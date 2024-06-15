@@ -1,0 +1,176 @@
+1. how to copy git repository and a working directory in the local workspace
+--> Clone:- Cloning is the process of creating a copy of a remote repository, including its entire history and working directory. This option is used when you want to copy a Git repository to your local machine for development or collaboration.
+-----------------------------------------------------------------------------------------------------------------------------
+
+2. maven command validates the maven project to ensure that everything is correct and all the necessary information is available is?
+--> mvn validate
+-----------------------------------------------------------------------------------------------------------------------------
+
+3. The file that can be commited are always present in Git(Global Information Tracker)?
+--> Staging area/Staged
+-----------------------------------------------------------------------------------------------------------------------------
+
+4. How to add one or more file to staging in Git ?
+--> git add *
+-----------------------------------------------------------------------------------------------------------------------------
+
+5. which maven command analyzes the to maven project identify the unused declared and used undeclared dependancies?
+--> mvn dependency:analyze
+-----------------------------------------------------------------------------------------------------------------------------
+
+6. The json format is almost identical to which type of objects?
+--> JavaScript 
+-----------------------------------------------------------------------------------------------------------------------------
+
+7. why should we use json web token?
+--> a. To Secure API's
+
+a. To secure apis 			b. To secure user interface
+c. To secure desktop			d. To secure mobile devices
+-----------------------------------------------------------------------------------------------------------------------------
+
+8. Which of the following is not true about git ?
+--> 3.Pull operation copies the changes from a local repository to a remote repository.
+
+1. By default git has a master branch
+2. Git clone operation creates the instance of the repository
+3. pull operation copies the changes from a local repository to a remote repository.
+4. All of the above
+-----------------------------------------------------------------------------------------------------------------------------
+
+9. what is the right order for application lifecycle management consist stages?
+--> 1. Requirement
+    2. Development 
+    3. Testing  
+    4. Deployment
+    5. continous maintenance
+
+ 1.continous maintenance  2. Testing 3. Requirement 4. Development 5. Deployment
+-----------------------------------------------------------------------------------------------------------------------------
+
+10. which environment is most likely UAT(User Acceptance Testing) will done from below list ? 
+--> 3.QA(Quality Assurance)
+
+1.Sandbo 2.dev 3.QA  4.Prod
+-----------------------------------------------------------------------------------------------------------------------------
+
+11. JSON is Unlike because.
+--> JSON is shorter, JSON is quicker to read and write, JSON can use arrays. 
+-----------------------------------------------------------------------------------------------------------------------------
+
+12. ObjectMapper mapper= new ObjectMapper();
+    Person user = mapper.readValue("{\"name\":\"John\"}",Person.class);
+--> (b) Reading JSON to JAVA object
+
+a) creating person object from JSON
+b) Reading JSON to JAVA object
+c) Parsing JSON string
+d) Reading Values from person class 
+-----------------------------------------------------------------------------------------------------------------------------
+
+13. how to create new git branch ?
+-->2. git checkout -b <branchname>
+
+1. git checkout <branchname>
+2. git checkout -b <branchname>
+3. git-create branch <branchname>
+4. git-branch n <branchname>
+-----------------------------------------------------------------------------------------------------------------------------
+
+14. how to push commit changes to Git head ?
+--> 1.git commit -m "Commit message" 
+
+1. git commit -m "Commit message" 
+2. git commit -a 
+3. git commit -push 
+4. git commit -commited 
+-----------------------------------------------------------------------------------------------------------------------------
+
+15. which of the following is true about Git ?
+--> 1.Git does not rely on the central server
+ 
+1. Git does not rely on the central server 
+2. Every git checkout is a full backup of the server repository 
+3. Git require network network connection only to publish your changes and take the latest changes
+-----------------------------------------------------------------------------------------------------------------------------
+
+16. this command to build the maven project and packages  a jar is ?
+--> 2.mvn package
+
+1. maven jar  
+2. mvn package 
+3. mvn jar 
+4. maven package
+-----------------------------------------------------------------------------------------------------------------------------
+
+17. How do you fetch and merge changes on the remote server to your working directory ?
+--> a.git pull
+
+a) git pull 
+b) git merge <branchname>
+c) git clone 
+d) git fetch -merge
+-----------------------------------------------------------------------------------------------------------------------------
+
+18. which of the following is true. 
+--> 2. Merge sort uses recursion. 
+
+1. Insertion sort takes longer when the array is sorted in ascending order and you want it sorted in descending order.  
+2. Merge sort uses recursion.  
+3. Selection sort takes less time to execute if the array is already sorted in correct order.
+-----------------------------------------------------------------------------------------------------------------------------
+
+19. what are the bare minimum fields in maven file?
+--> groupId, artifactId, version.
+-----------------------------------------------------------------------------------------------------------------------------
+
+20. maven command to run the test cases of the project
+--> mvn test
+-----------------------------------------------------------------------------------------------------------------------------
+
+1. how to copy git repository and a working directory in the local workspace
+--> Clone
+2. maven command validates the maven project to ensure that everything is correct and all the necessary information is available is?
+--> mvn validate
+3. The file that can be commited are always present in Git(Global Information Tracker)?
+--> Staging area/Staged
+4. How to add one or more file to staging in Git ?
+--> git add *
+5. which maven command analyzes the to maven project identify the unused declared and used undeclared dependancies?
+--> mvn dependency:analyze
+6. The json format is almost identical to which type of objects?
+--> JavaScript 
+7. why should we use json web token?
+--> a. To Secure API's
+8. Which of the following is not true about git ?
+--> 3.Pull operation copies the changes from a local repository to a remote repository
+10. which environment is most likely UAT(User Acceptance Testing) will done from below list ? 
+--> 3.QA(Quality Assurance)
+11. JSON is Unlike because.
+--> JSON is shorter, JSON is quicker to read and write, JSON can use arrays. 
+12. ObjectMapper mapper= new ObjectMapper();
+    Person user = mapper.readValue("{\"name\":\"John\"}",Person.class);
+--> (b) Reading JSON to JAVA object
+12. ObjectMapper mapper= new ObjectMapper();
+    Person user = mapper.readValue("{\"name\":\"John\"}",Person.class);
+--> (b) Reading JSON to JAVA object
+13. how to create new git branch ?
+-->2. git checkout -b <branchname>
+14. how to push commit changes to Git head ?
+--> 1.git commit -m "Commit message" 
+15. which of the following is true about Git ?
+--> 1.Git does not rely on the central server
+16. this command to build the maven project and packages  a jar is ?
+--> 2.mvn package
+17. How do you fetch and merge changes on the remote server to your working directory ?
+--> a.git pull
+18. which of the following is true. 
+--> 2. Merge sort uses recursion. 
+19. what are the bare minimum fields in maven file?
+--> groupId, artifactId, version.
+20. maven command to run the test cases of the project
+--> mvn test
+
+
+
+

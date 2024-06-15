@@ -1,0 +1,159 @@
+What is Collection in Java?
+
+-->The Collection in Java is a framework that provides an architecture to store and manipulate the group of objects.
+
+Collection is an interface ,The Collection interface is the interface which is implemented by all the classes in the collection framework.
+
+Java Collections can achieve all the operations that you perform on a data such as searching, sorting, insertion, manipulation, and deletion.
+
+Java Collection means a single unit of objects. Java Collection framework provides many interfaces (Set, List, Queue, Deque,SortedSet) and classes (ArrayList, LinkedList, HashSet,LinkedHashSet,TreeSet, PriorityQueue, ArrayDeque,Vector).
+
+Methods of collection interface are add(E e),addAll(),remove(Object element),removeAll(),size(),clear(),contains(Object element),containsAll(Collection<?> c),iterator(),isEmpty()
+
+
+
+What is a Framework in Java?
+
+-->Framework It represents the library,Java Framework is the body  of pre-written codes used by Java developers to develop Java applications or web applications. In other words, Java Framework is a collection of predefined classes and functions that is used to process input, manage hardware devices interacts with system software. It acts like a skeleton that helps the developer to develop an application by writing their own code.
+
+It represents a set of classes and interfaces.
+
+Java collection framework consists of classes and interfaces by using these classes and interface developers can represent a group of objects in a single entity. Collection framework is present in package java. util.
+
+see in NoteBook of collection framework hierarchy.
+
+ What is the difference between Array and Collection in Java?
+-->written in NoteBook
+
+What are the various interfaces used in Java Collections Framework?
+
+--> Iterable,Collection,List,Queue,Set,Deque,SortedSet   Expain this already written in NoteBook
+
+ Explain the hierarchy of the Collection framework in Java.?
+--->Written in NoteBook
+
+
+What are the advantages of the collection Framework?
+--> 
+1.It provides useful data structures and algorithms that reduces programming effort due to which we need not to write them ourselves.
+2. It provides high-performance implementations of useful data structures and algorithms that increases the performance.
+3. Collection is resizable and can grow.
+4.Collection Framework enables the user to perform various data manipulation operations like storing data, searching, sorting, insertion, deletion, and updating of data on the group of elements.
+5.Collection can hold both homogeneous and heterogeneous elements. 
+
+What is ArrayList in Java? 
+-->Already Explained
+
+What is the difference between Collection and Collections?
+--> Already in NoteBook
+
+ Differentiate between Iterator and ListIterator.
+-->Already written
+
+Differentiate between HashSet and HashMap.
+--> Already written
+
+What is the difference between Comparable and Comparator in Java?
+--> Already written
+
+
+What is IdentityHashMap?
+--> 1. The IdentityHashMap class is similar to the HashMap class. It implements the AbstractMap class.
+     
+    2. IdentityHashMap uses reference equality == to compare the key and values.
+
+     3.HashMap uses object equality equals() method to compare the key and values. IdentityHashMap uses reference equality to           compare the key and values.
+
+  4. It uses reference equality rather than using the equals() method. It uses the == operator.
+
+  5. It is not synchronized and must be synchronized externally.
+
+ 
+What is a Properties Class in Java? 
+
+--> Properties is a subclass of Hashtable. It is used to maintain lists of values in which the key is a String and the value is also a String. The Properties class is used by many other Java classes. The Properties can be saved to a stream or loaded from a stream. 
+sream - In Java, streams are the sequence of data that are read from the source and written to the destination. 
+
+
+
+ What is the benefit of Generics in Collections Framework?
+
+--> Java 1.5 came with Generics and all collection interfaces and implementations use it heavily. Generics allow us to provide the type of Object that a collection can contain, so if you try to add any element of other type it throws compile time error. This avoids ClassCastException at Runtime because you will get the error at compilation. Also Generics make code clean since we don’t need to use casting 
+
+Generics means parameterized types. The idea is to allow type (Integer, String, … etc., and user-defined types) to be a parameter to methods, classes, and interfaces
+
+Static and non-static generic methods are allowed
+
+Example :
+ public class GenericContainer<T> {
+    private T data;
+
+    public GenericContainer(T data) {
+        this.data = data;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public static void main(String[] args) {
+        GenericContainer<Integer> intContainer = new GenericContainer<>(42);
+        System.out.println("Integer Data: " + intContainer.getData());
+
+        GenericContainer<String> stringContainer = new GenericContainer<>("Hello, Generics!");
+        System.out.println("String Data: " + stringContainer.getData());
+    }
+}
+
+
+why java is robust?
+1) Strongly Typed: Java is a strongly typed language, which means that variables must be declared with a specific data type. 
+2) Object-Oriented: 
+3)  Automatic Memory Management (Garbage Collection): Java uses automatic garbage collection, which means developers don't have to explicitly deallocate memory
+
+In Java, the Garbage Collector (GC) is a part of the Java Virtual Machine (JVM) responsible for automatically managing memory in Java programs. When you create objects in Java, the JVM allocates memory for them in the heap. Over time, as objects are created and no longer in use, they become unreachable, and keeping them in memory would be a waste of resources. The garbage collector identifies and deletes these unused objects, freeing up memory and ensuring the efficient use of system resources.
+
+
+4) Exception Handling: Java has a robust exception-handling mechanism, allowing developers to handle errors and unexpected situations gracefully
+5) Array Bound Checking
+6) Platform Independence 
+7)  java not use pointers because if we use pointer then data hiding will not be suported 
+
+
+what are mutable string?
+In a mutable string, we can change the value of the string and JVM doesn't create a new object. In a mutable string, we can change the value of the string in the same object. To create a mutable string in java, Java has two classes StringBuffer and StringBuilder where the String class is used for the (immutable string?).
+
+In Java, the String class is indeed used for immutable strings. Once a String object is created, its value cannot be changed. Any operation that appears to modify a String actually creates a new String object with the modified content, leaving the original String object unchanged.
+
+StringBuffer and StringBuilder, on the other hand, are used for mutable strings. They allow you to modify the content of the string without creating new objects, making them more efficient when you need to perform multiple modifications on a string. StringBuffer is synchronized and therefore thread-safe, while StringBuilder is not synchronized, providing better performance in single-threaded scenarios.
+
+
+what is StringBuilder?
+StringBuilder was introduced in Java 5. It is part of the java.lang package. StringBuilder is a mutable sequence of characters. You can modify the content (add, append, delete, etc.) of a StringBuilder object without creating a new object each time. 
+
+Example:
+StringBuilder stringBuilder = new StringBuilder("Hello");
+stringBuilder.append(" World"); // Appends " World" to the StringBuilder
+System.out.println(stringBuilder.toString()); // Output: Hello World
+
+what is StringBuffer?
+StringBuffer is similar to StringBuilder, but it is synchronized, which means it is thread-safe. If you are working in a multi-threaded environment and need a mutable string, you should use StringBuffer instead of StringBuilder. StringBuffer methods are synchronized, making them safe to use in concurrent applications.
+
+Example:
+StringBuffer stringBuffer = new StringBuffer("Hello");
+stringBuffer.append(" World"); // Appends " World" to the StringBuffer
+System.out.println(stringBuffer.toString()); // Output: Hello World
+
+
+Link for Collection Interview Question 
+https://www.digitalocean.com/community/tutorials/java-collections-interview-questions-and-answers
+
+what is RDBMS?
+it is relational database management system
+
+
+What is SQL and why it is used?
+SQL (pronounced "ess-que-el") stands for Structured Query Language. SQL is used to communicate with a database. SQL lets you access and manipulate databases
+
+
+It manages data in RDBMS

@@ -1,0 +1,166 @@
+#. What is Java ?
+	Java is high-level, object-oriented programming language developed by Sun microsystem. It is also known for its platform independence, as java code can run on any platform with a Java Virtual Machine(JVM).
+
+#. How does java achieve platform independance ?
+	Java achieve platform independance by compiling source code into bytecode, which is then executed by the JVM specifiec to the platform.
+
+#. What is constuctor and why it is used in java ?
+	A constructor is a special method used to initialize object. It is called when an object is created and ensures that the object is in a valid state.
+ 
+#. What is the use of super keyword?
+	Refer to a immediate parent or super class instance variable in the sub class.
+	Invoke a parent class method from the sub class.
+	Invoke the immediate parent class constructor from the sub class.
+
+#. What is the use of 'this' keyword in java ?
+	'this' refers to the current object within a class. It is often used distinguish between instance variable and method parameters with the same name.
+
+#. What is the use of 'static' keyword in java ?
+	The 'static' keyword in Java is used to declare a class member (method, variable, or nested class) that is shared by all instances of the class. This means that you can access a static member without first creating an instance of the class.
+*. Static variables:
+	Static variables are shared by all instances of the class. They are initialized when the class is loaded into memory, and they can be accessed without creating an instance of the class.
+*. Static methods:
+	Static methods are also shared by all instances of the class. They can be called without creating an instance of the class.
+*. Static nested classes:
+	Static nested classes are classes that are declared inside another class. They can only be accessed by instances of the outer class.
+	
+#. Finally = The finally block in Java is used to ensure that a section of code is always executed, regardless of whether an exception is thrown or not. This is useful for cleaning up resources, such as closing files or database connections.
+The finally block is always executed after the try and catch blocks, if they exist. If an exception is thrown in the try block, the catch block will be executed, and then the finally block. If no exception is thrown, the finally block will still be executed.
+
+#. Final = The final keyword is used to declare variable, methods or classes as unchangeble. A final variable cannot be reassigned, A Final method cannot be overidden and Final class cannot be extended.
+
+#.  Finalize = Finalize() method in java is a method of a object class that is used to perform cleanup activity before destroying any object. It is called by Garbage collector before destroying the object from memory. finalize() method called by default for every object before its deletion.
+
+#. Autoclosable = The AutoCloseable keyword in Java is used to automatically close resources when they are no longer needed. This helps to prevent resource leaks, which can cause problems such as performance issues and data corruption.
+To use the AutoCloseable keyword, you must first declare a variable that implements the AutoCloseable interface. Then, you can use the try-with-resources statement to automatically close the resource when it is no longer needed.
+
+#. Difference between throw and throws keyword :
+	 1. Java throw keyword is used throw an exception explicitly in the code, inside the function or the block of code.
+	 1. Java throws keyword is used in the method signature to declare an exception which might be thrown by the function 	  while the execution of the code.	
+	 2. Type of exception Using throw keyword, we can only propagate unchecked exception i.e., the checked exception 	 	  cannot be propagated using throw only.
+	 2. Using throws keyword, we can declare both checked and unchecked exceptions. However, the throws keyword can be 		  used to propagate checked exceptions only.
+	 3. The throw keyword is followed by an instance of Exception to be thrown.
+	 3. The throws keyword is followed by class names of Exceptions to be thrown.
+	 4. throw is used within the method.
+	 4. throws is used with the method signature.
+	 5. We are allowed to throw only one exception at a time i.e. we cannot throw multiple exceptions.
+	 5. We can declare multiple exceptions using throws keyword that can be thrown by the method. For example, main() 		  throws IOException, SQLException.
+	  		  throw 					throws
+1.Usage     : * Used inside a method body.		* Used in the method signature.
+2.Purpose   : * Throws an exception explicitly. 	* Declares that a method might throw an exception.
+3.Exception : * Can throw either checked or unchecked   * Can declare both checked and unchecked exceptions.
+  Type		exceptions.
+
+
+#. marker interface =  A marker interface in java is an interface that doesn't have any method or fields. It simply a tag or a marker that provides some information about the class implementing it. Marker interface are used to provide metadata about the class. example - Cloneable interface, Serializable interface, Rremote interface.
+	Marker interfaces act as a form of metadata, providing information about classes at runtime.
+	They tag classes to indicate specific behaviors or capabilities without adding any methods.
+	For example, the Serializable interface in Java is a marker interface that indicates that a class can be serialized.
+	Metadata refers to data that provides information about other data.
+
+1. Cloneable interface = Cloneable interface in Java is a marker interface that is used to indicate that a class can be cloned. It is an empty interface that does not contain any methods to implement. By convention, a class that implements the Cloneable interface is expected to override the Object.
+
+ why we use cloneable interface in java?
+----> Cloneable is an interface that is used to create the exact copy of an object. It exists in java. lang package. A class must implement the Cloneable interface if we want to create the clone of the class object.
+
+2. Serializable interface
+----> The Serializable interface in Java is a marker interface that is used to indicate that an object can be serialized. Serialization is the process of converting an object's state into a byte stream so that it can be stored or transmitted. Deserialization is the reverse process of converting a byte stream back into an object.
+The Serializable interface is used in a variety of situations, such as:
+	1. Remote Method Invocation (RMI):- RMI allows objects to be invoked on remote machines. In order to do this, the objects must be serializable so that they can be transmitted over the network.
+	2. Database storage:- Objects can be stored in a database by serializing them and storing the byte stream in a column.
+	3.File storage:- Objects can be stored in a file by serializing them and writing the byte stream to the file.
+To implement the Serializable interface, a class simply needs to declare that it implements the interface. There are no methods that need to be implemented.
+
+3. Remote interface = A remote interface in Java is an interface that extends the java.rmi.Remote interface. It declares a set of methods that can be invoked from a remote Java virtual machine (JVM).
+  To use a remote interface, you need to:
+	1.Create a remote interface that extends the java.rmi.Remote interface.
+	2.Implement the remote interface in a class.
+	3.Create a stub for the remote object.
+	4.Use the stub to invoke methods on the remote object.
+   RMI is used to create distributed applications in Java. It allows objects on one computer or JVM to interact with objects running on a different JVM in a distributed network.	
+
+=============================================================================================================================
+#. difference b/w methodoverridinng & methodoverloading(perfect)
+--> Feature		Method Overloading						Method Overriding
+  1.Definition		Multiple methods with the same name but different 	Subclass provides a specific implementation				parameters.				 		of a method in superclass.
+  2.Inheritance		Not related to inheritance.				Involves inheritance (subclass and superclass 
+										relationship).
+  3.Parameters		Different method signatures (different types or 	Same method signature (same name, parameters, 			number of parameters).					and return type).
+  4.Access Modifier	Can have different access modifiers.			Access modifier can be the same or less 											restrictive in the subclass.
+  5.Polymorphism	Compile-time polymorphism (static polymorphism).	Runtime polymorphism (dynamic polymorphism).
+  6.Determining Method	Determined by the compiler based on method signature 	Determined at runtime based on the actual 			and parameters.						object type.
+
+  7.Example		public void add(int a, int b) {}			@Override public void makeSound() {} (in
+			public void add(double a, double b) {}			subclass overriding a method in superclass)
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. what are the collections you used.
+--> 	ArrayList: A dynamic array that can grow and shrink in size. It's part of the Java Collections Framework and allows for the storage of elements in a sequential manner.
+	LinkedList: A doubly-linked list implementation where elements are stored as nodes with references to the previous and next elements. It's efficient for operations like adding or removing elements from the beginning or middle of the list.
+	HashMap: A key-value pair data structure that allows for fast retrieval of elements based on their keys. It uses hashing to store and retrieve elements efficiently.
+	HashSet: A set implementation that stores unique elements. It uses hashing to ensure that no duplicate elements are stored and provides constant-time performance for basic operations like add, remove, and contains.
+	TreeMap: A sorted map implementation that stores key-value pairs in sorted order based on the keys. It uses a Red-Black tree internally to maintain the order of elements.
+	TreeSet: A sorted set implementation that stores unique elements in sorted order. It uses a Red-Black tree internally to maintain the sorted order of elements.
+
+These are just a few examples of collections available in Java. Each collection has its own characteristics and is suited for different use cases based on factors like performance, memory usage, and ordering requirements.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. if I create my own programming language how I will make it object oriented.(answered well but not perfect)
+--> 	Classes and Objects: Define classes as blueprints for objects.
+	Inheritance: Enable classes to inherit properties and behavior from others.
+	Encapsulation: Control access to data within objects to maintain integrity.
+	Polymorphism: Allow different classes to share method names with different implementations.
+	Abstraction: Define abstract classes and interfaces for generalization.
+	Method Overloading/Overriding: Support multiple methods with the same name and dynamic method implementation.
+	Dynamic Binding: Resolve method calls at runtime based on object types for flexibility.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. Constructor
+--> 	In Java, a constructor is a special type of method that is automatically called when an instance (object) of a class is created. Its primary purpose is to initialize the newly created object.
+ 
+	Name: Constructors have the same name as the class they belong to.
+	No Return Type: Constructors do not have a return type, not even void.
+	Initialization: They are used to initialize the instance variables of an object.
+	Default Constructor: If you don't define any constructor for a class, Java provides a default constructor, which initializes instance variables to their default values (0, null, etc.).
+	Parameterized Constructor: You can define constructors with parameters to initialize instance variables with specific values.
+	Overloading: Like other methods, constructors can also be overloaded, meaning you can have multiple constructors with different parameter lists.
+	Invocation: Constructors are invoked using the new keyword when an object of the class is created.
+
+* Types of constructor
+1. Parameterized Constructor :-
+	A parameterized constructor is one that takes parameters.
+	It allows you to initialize instance variables with specific values provided as arguments during object creation.
+	Parameterized constructors provide more flexibility in object initialization compared to default constructors.
+* Example :-
+public class Student{
+	int id;
+	String name;
+	double marks;
+	
+	public Student(int id, String name, double marks){
+		this.id=id;
+		this.name=name;
+		this.marks=marks;
+	}
+}
+
+2. Default constructor :-
+	A default constructor is one that doesn't take any parameters.
+	If you don't define any constructors in your class, Java provides a default constructor automatically.
+	It initializes instance variables to their default values (0, null, etc. for primitives and reference types, respectively).
+
+3. No-argument constructor :-
+	A no-argument constructor, also known as a default constructor, doesn't take any parameters. It's automatically provided if no other constructors are defined. It initializes instance variables to default values and is invoked automatically when an object is created without any arguments.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. java features :-
+---> 	1. Platform Independence: Runs on any device with a Java Virtual Machine (JVM).
+	2. Object-Oriented: Emphasizes modularity and reusability with objects.
+	3. Automatic Memory Management: Handles memory allocation and deallocation automatically.
+	4. Rich Standard Library: Comprehensive set of pre-built classes and methods for common tasks.
+	5. Security: Built-in features protect against unauthorized access and malicious code.
+	6. Multi-threading Support: Allows programs to perform multiple tasks concurrently.
+	7. High Performance: Advanced optimization techniques for efficient execution.
+	8. Backward Compatibility: Older Java code runs on newer versions without modification. 
+	9. Case Sensitive : Java is case-sensitive, meaning that identifiers such as variables, class names, and method names 	must be written with consistent capitalization throughout the code.
+-----------------------------------------------------------------------------------------------------------------------------
