@@ -1,0 +1,316 @@
+What is HTML?
+--> HTML, which stands for HyperText Markup Language, is the standard markup language used to create and design documents on the World Wide Web.It is the backbone of web content and provides the basic structure for web pages. HTML uses a system of tags (enclosed in angle brackets < >) to define and describe the structure of a document. These tags(<>) represent elements such as headings, paragraphs, links, images, lists, and more.
+
+
+HyperText: Refers to the linking of documents (or pages) through hyperlinks. Users can navigate between documents by clicking on hyperlinks.
+"hypertext" refers to text that contains links (hyperlinks) to other documents.
+
+
+Markup: The "markup" part involves using special tags or codes within the text to define elements, structure, and formatting. These tags are enclosed in angle brackets, like <tag>, and they provide instructions to the web browser on how to display and structure the content.
+So, in summary, "markup" in HTML refers to the use of special tags to annotate or mark up the content, providing structure
+
+
+These are some Html elements.
+<!DOCTYPE html> declares the HTML version being used (in this case, HTML5).
+<html> is the root element that wraps all the content on the page.
+<head> contains meta-information about the document, such as the title.
+<title> sets the title of the web page (displayed in the browser's title bar or tab).
+<body> contains the main content of the web page.
+<h1> is a heading tag.
+<p> is a paragraph tag.
+<ul> and <li> create an unordered list with list items.
+
+<html>
+<head>
+</head>
+<body>
+
+</body>
+
+</html>
+
+
+What is CSS?
+--> CSS, or Cascading Style Sheets, is a style sheet language used to describe the presentation of a document written in HTML.
+CSS describes how elements should be displayed on the screen, in print, or in other media. It allows web developers to control the layout, appearance, and styling of multiple web pages at once.
+
+Key features of CSS include:
+
+1) CSS selectors allow you to select and manipulate HTML element.
+2) They are used to find HTML element based on their ID,Class,Type,and Attribute.
+3) Commonly used selectors are:
+*Type Selectors :
+A type selector is somtimes referred to as a tag name selector, element selector because it select an HTML tag/element in your document
+*ID Selectors :An ID selector uses the ID attribute of an HTML element to select a specific element.
+The value for ID attribute is unique for the whole HTML document.
+to select an element with a specific ID, write #(hash) character, followed by ID f the element
+
+*Class Selectors : The class selector select element with a specific class attribute
+To select element with a specific class, write a period(.) character, followed by name of the class
+Selectors: CSS uses selectors to target HTML elements. Selectors can be based on element types, class names, IDs, attributes, and more. They define which elements the styles will be applied to.
+It's generally recommended to use classes for styling whenever you have multiple elements with the same style, as it promotes reusability and makes your styles more maintainable. Avoid using the same ID for multiple elements, as IDs are intended to be unique identifiers.
+
+Properties and Values: CSS rules consist of property-value pairs. A property is a specific aspect of an element's appearance, and the value defines how that property should be applied. For example, the color property sets the text color, and its value could be a specific color name or a hexadecimal code.
+
+Stylesheets: CSS can be applied to HTML documents in various ways. It can be embedded directly into an HTML document using the <style> tag, included in a separate CSS file linked to the HTML document, or applied inline within HTML elements.
+
+* body, h1, and p are selectors targeting the body element, h1 heading, and p paragraph, respectively.
+* Properties like font-family, background-color, color, font-size, and others are set with specific values.
+
+Applying styles to HTML page
+1) Inline Style : inline styles are placed directly inside an HTML element in the code using "Style" attribute.
+2)Embedded or internal style: internal styles are placed inside the head section of a particular web page via the style tag.
+3)External style: An external style sheet is a seperate page that is then linked to the web page.
+Link the HTML and CSS document using the <link> tag, which comes under the <head> tag
+
+Applying styles to HTML element using CSS properties
+CSS Background properties :background-color,background-image,background-position,background-repeat
+CSS Font property : font-family, font-size,font-style, font-weight,line-height
+CSS Line-style property : Line-style-position,line-style-type
+
+
+CSS Box Model
+The CSS box model is a box that wrap around every HTML element. It consist of margins,borders,padding,and the actual content
+1) content : This is the innermost part of the box and contains the actual content, such as text, images, or other media.
+2)padding : Padding is the space between the content and the border.
+It can be controlled using properties like padding-top, padding-right, padding-bottom, and padding-left, or the shorthand padding property.
+3)border : The border surrounds the padding and content.
+4)Margin : Margin is the space outside the border and separates the element from its neighboring elements.
+
+Type of CSS Positioning
+Static : This is the default position that every element gets. It means the element is postioned according to the normal flow of the page.
+Absolute : The element is positioned relative 
+Relative :
+Fixed : 
+
+Grid Box : CSS Grid is a layout system that allows you to create complex two-dimensional layouts with rows and columns.
+
+Responsive Grid System
+1)columns
+2)Gutters : a gutter is a space between columns that helps seperate the content. 
+
+Flex Box : by using flex we can put boxes in horizontal way , Flexbox is like a tool in CSS that makes it easy to arrange things on a web page .
+
+what is bootstrap?
+--> Bootstrap is a free and open-source front-end framework for designing websites and web applications. It was originally created by Twitter and is now maintained by the open-source community. Bootstrap provides a set of tools, styles, and components that make it easier to create responsive and visually appealing web pages.
+
+1) Responsive Design: Bootstrap is designed to be responsive, meaning that the layout of your website adjusts dynamically based on the size of the screen or device. This is essential for creating websites that work well on desktops, tablets, and mobile devices.
+2) Grid System: Bootstrap uses a responsive grid system that allows developers to create flexible and responsive layouts. The grid system is based on a 12-column layout, making it easy to create complex page structures.
+
+container class in your example is a predefined class in Bootstrap. It is part of Bootstrap's grid system and is used to create a responsive container that wraps and contains the grid rows and columns.
+1) container: This class provides a responsive fixed-width container. It means that the content inside the container will have a maximum width based on the screen size. The width changes at different breakpoints for responsiveness.
+
+2) container-fluid: This class creates a full-width container that spans the entire width of the viewport. It adjusts dynamically with different screen sizes.
+
+In summary, if you want your content to be contained within a fixed-width box with responsive behavior (maximum width at different breakpoints), use the .container class. If you want your content to span the entire width of the viewport, use the .container-fluid class. The choice between them depends on the design requirements of your website or application.
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">Column 1</div>
+    <div class="col-md-6">Column 2</div>
+  </div>
+</div>
+
+The outermost <div> with the class container creates a fixed-width container to hold the content.
+
+Inside this container, there is another <div> with the class row. This row div is used to create a horizontal row within the container. The purpose of the row is to contain columns.
+
+Within the row, there are two <div> elements, each with the class col-md-6. These represent two columns within the row. The col-md-6 class specifies that each column should take up 6 out of the 12 available columns on medium-sized screens (md).
+
+The use of the row class is significant because it helps handle the layout and spacing of columns. Bootstrap's grid system is based on a 12-column layout, and the row class ensures that columns are properly aligned and spaced within the container. It also helps with responsiveness, as columns will stack vertically on smaller screens.
+
+
+what is medis Query?
+--> A media query is a CSS technique used to apply styles based on certain characteristics of the device or browser displaying the webpage. Media queries enable responsive web design by allowing you to define styles for different conditions, such as screen width, height, or device orientation.(course 8 sprint 4)
+
+@media screen and (max-width: 600px) {
+  /* Styles to apply when the screen width is 600 pixels or less */
+}
+
+@media: This is the start of the media query.
+screen: It specifies the type of media, in this case, a computer screen.
+and: It's a logical operator.
+(max-width: 600px): It's a condition. The styles within the curly braces will be applied only if the screen width is 600 pixels or less.
+
+Breakpoint in Bootstrap ?
+--> In the context of Bootstrap and responsive web design, a breakpoint refers to a specific screen width at which the layout of a website is adjusted to better fit the dimensions of the device or screen.  
+Bootstrap has four standard breakpoints.
+1) Extra small(xm)
+2) small(sm)
+3) Medium (md)
+4) Large(lg)
+5) Extra Large(xl)
+
+Difference between java and javascript?
+java: Java is a server-side language, and its applications typically run on a server (Java Virtual Machine) rather than in a web browser.
+JavaScript: JavaScript is a client-side language, meaning it runs in the user's web browser. 
+
+
+java: Java applications are compiled into bytecode, which is then executed by the Java Virtual Machine (JVM). This bytecode can run on any device with a compatible JVM.
+Javascript:  JavaScript code is typically interpreted and executed by the JavaScript engine in web browsers. Each major web browser (e.g., Chrome, Firefox, Safari) has its own JavaScript engine.
+
+Java: Java is a class-based, object-oriented programming language. It follows a strong typing system and supports features like inheritance and polymorphism.
+javascript:  JavaScript is also object-oriented. It is a loosely typed language, allowing for more flexibility in coding.
+
+Java: Widely used for building enterprise-level applications, Android mobile apps, server-side applications, and more.
+JavaScript: Primarily used for enhancing the interactivity of web pages, building web applications,
+
+what is javascript ?
+--> 1) javascript is the most popular programming language for web developement.
+   2) javascript is a scripting language
+   3) JavaScript code is executed in a web browser by a JavaScript engine. Each major web browser (such as              Chrome, Firefox, Safari, and Edge) has its own JavaScript engine that interprets and executes JavaScript  code.
+4) A web brower is running at client end,and therefore javascript executeing in browser is termed as client-side scripting language
+5) Javascript is a case-sensitive language.
+6) Its not mandotory , all javascript satatement must end with semicolon
+
+There are two type of datatype in javascript
+1)Primitive datatype
+2)Object datatype
+
+1)Primitive Datatype: 
+* Number : Ex: let age=25;
+* String : Ex: let name="Muskan";
+* Boolean : Ex:let isTrue=true;
+* Null : let emptyValue=null;;
+* Undefined : let undefinedValue;
+* Symbol : let uniqueId = Symbol('id')
+
+
+2)Object Datatype
+Represents a collection of key-value pairs where each key is a string (or symbol) and each value can be of any data type, including other objects.
+Example : 
+let person = {
+  name: 'Alice',
+  age: 30,
+  isStudent: false
+};
+
+let fruits=['apple','banana','mango']
+consile.log(fruits[0]);
+
+Creating objects in javascript
+const employee = {
+firstName: "Tina"
+lastName: "Ramchandani"
+email: "Tina@123"
+fullName(){
+return firstName + "." + lastName
+}
+
+}
+In this code employee is an object . firstName,lastName,email,fullName() are properties of an employee
+If we want to print value then we must write like this console.log(employee.firstName)
+
+what are functions in javascript?
+--> In JavaScript, a function is a reusable block of code that performs a specific task or set of tasks.
+Ex : 
+function greet(name) {
+  console.log("Hello, " + name + "!");
+}
+
+Se-Structuring an Array
+De-structuring in javascript is a simplified method of extracting multiple properties from an array.
+It takes the structure and deconstruct it down into its own constitute parts through assignments by using a syntax that looks like array literals
+Ex: const colors = ["Red","Blue","Pink","Black"];
+const[red,blue,pink,black]=colors;
+console.log(red);
+
+Methods present in javascript
+1)Splice : The splice() method changes the contents of an array by removing existing elements and/or adding new elements.This method changes the original array.
+Example: var geek=["red","yellow","green","pink"];
+         geek.splice(2,2,"Dell");  geek.splice(operation start,No of element get deleted,add element)
+Geeky show
+
+
+2)Slice: This method is used to display element from that position specified up to index we are giving.
+Ex : var geek=["Muskan","Aashu","Mahek","Nidhi"];
+var geekElement=geek.slice(1,2);
+console.log(geekElement);
+
+In this case its start with 1 and end with before 2 element so it will displaay Aashu
+
+3)Filter: It is used to filter the element and it will return array.
+4)map: whatevery changes it will make it will return in new array existing array will remain same.It wiil not make changes in original array it will return us new array
+
+var arr=[10,23,20,34,34];
+var newArr=arr.map(function(value){
+ value++;
+return value; // 11,24,21,35,35
+})
+
+console.log(arr); // 10,23,20,34,34
+console.log(newArr); //undefined
+
+5)reduce:Reduce an array to a single value
+Example: let arr3=[1,2,3,4,5];
+const reduce_Number=(h1,h2)={
+return h1+h2;
+
+}
+let newArr3=arr3.reduce(reduce_Number)
+console.log(newArr3); Harry
+
+
+What is REST?
+--> REST API, which stands for Representational State Transfer Application Programming Interface, is a set of rules and conventions for building and interacting with web services. It is an architectural style for designing networked applications. RESTful APIs use standard HTTP methods (such as GET, POST, PUT, DELETE) to perform CRUD (Create, Read, Update, Delete) operations on resources.
+
+1) Statelessness: Each request from a client to a server contains all the information needed to understand and process the request. The server does not store any information about the client's state between requests.
+
+2)Client-Server Architecture: The client and server are separate entities that communicate over a network. The client is responsible for the user interface and user experience, while the server is responsible for processing requests and managing resources.
+
+
+Common HTTP methods used in RESTful APIs include:
+
+GET: Retrieve a representation of a resource.
+POST: Create a new resource.
+PUT: Update an existing resource or create a new resource if it doesn't exist.
+DELETE: Remove a resource.
+Http Status Code
+100-199 : the status code 102 indicates the serves has received and is processing the request. The response is Yet not generated.
+200-299 : the status code 200 for a Get request indicate the request was successful in retrieving the requested data .
+300-399 : the status code 301 indicate the request has been changed permanently
+400-499 : 404 indicates the server could not find the requested resource.
+500-599 : 500 indicate the internal server error
+
+What is Doument Object Model(DOM)?
+--> The Document Object Model (DOM) is a programming interface for web documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page
+
+Imagine a web page as a document, and the DOM is like a tree where each element (like headings, paragraphs, buttons) is a branch or a node. With the DOM, you can use code (typically JavaScript) to reach out to these nodes, change their content, add new elements, or remove existing ones. It's a crucial part of making web pages dynamic and interactive.
+Example from course 9 sprint 4 Notes example
+
+HTML DOM element 
+1) by  id : getElementById()
+2) by tag name : getElementsByTagName()
+3) by class name : getElementByClassName()
+4) by CSS selectors : querySelectorAll() 
+
+What is Event Handling?
+--> Event handling refers to the process of writing code to respond to events that occur in a software application. In the context of web development, events typically involve user interactions with a web page, such as clicking a button, submitting a form, moving the mouse, or pressing a key. Event handling allows developers to define specific actions or behaviors that should occur in response to these events.
+
+Example : 
+<body>
+
+<button id="myButton">Click me</button>
+
+<script>
+  // Get a reference to the button element
+  let button = document.getElementById('myButton');
+
+  // Add an event listener for the 'click' event
+  button.addEventListener('click', function() {
+    // This function will be executed when the button is clicked
+    console.log('Button clicked!');
+    alert('Button clicked!');
+  });
+</script>
+
+</body>
+</html>
+
+#. what is observable ?
+-->  Observables can emit data synchronously or asynchronously— it depends on whether the observable function performs a synchronous task or asynchronous task to produce data.
+In Angular, when you work with Observables, they are typically asynchronous. Angular heavily uses RxJS, which is a reactive programming library for JavaScript that provides support for asynchronous data streams. Observables in Angular are used to handle various asynchronous operations, such as handling HTTP requests, user input, and other asynchronous events.
+	When using observables in Angular, especially in the context of making HTTP requests to fetch data from a server, the data is typically processed asynchronously. The key idea is that your application doesn't have to wait for the entire set of data to be fetched before it can start displaying or processing it.
+	This asynchronous approach allows your application to remain responsive, and users can start seeing and interacting with the data as it becomes available, rather than waiting for the entire set of data to be fetched before anything is displayed.
+
+

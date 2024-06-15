@@ -1,0 +1,34 @@
+1) Tell me something about yourself/ take us through your profile ?– remember to include your skills too (core/technical skills soft skills & behavioral skills) and a brief about project.
+
+----> 	Hello, my name is Nihal Mujawar. I am from Kolhapur, Maharashtra. I have completed my bachelor's degree in computer application with first class honors from shivraj college gadhinglaj. Now I am skilled and trained Java Full Stack Software Engineer certified by NIIT. I have also completed the certification of hardware and networking. As far as my work experience is concerned, I worked as Sales Executive with HDB Financial Services Limited for 15 months.
+
+	I specilize in frontEnd technologies such as HTML, CSS, Bootstrap, JS, TS, Angular and have hands-on experience in BackEnd technologies also like Spring, Spring Boot, Docker, Eureka server, API-Gateway, Micro-services. Also I have good knowledge about databases like MySQL and MongDB. I am quick learner. I have good communication skills and I am self-motivated person.
+	During the certification I worked on several projects like JukeBox and Movie Application. In jukebox project I have used Java, MySQL and JDBC. In my project user can register and enjoy listening to songs, User have the options to search for a song using their ID, genre or song name. Additionally user can create their playlist and add songs to them.
+
+	My capstone project was Movie Application, where user can play movie-trailers, in which BackEnd was created using Spring Boot, Micro-services, Json Web Token, Eureka-server, API-Gateway, Feign-client, and FrontEnd created using Angular. In my application user can easily register and login. They can create the list of favourite movies from movie list. Another task they can perform is search, by movie name and my application offers the recommendation system, which suggest movies to user.
+
+2) What is your greatest achievement? 
+
+---->	In my last job at HDB Financial Services Limited, hitting monthly targets was important because it affected the extra money we got in our salary, called incentives. I not only met my targets but also went above them. As a result, I earned a 40k incentive, which was a big achievement for me.
+
+3) Why should we hire you?
+
+---->  	You should hire me because I bring a strong foundation in key technologies, a proven ability to learn quickly. My project experience, including the JukeBox project and movie app, demonstrates my skills in Java, MySQL, and FrontEnd/BackEnd technologies. I am eager to contribute, learn, and grow with your team, ensuring a valuable addition to your organization. I worked with HDB Financial Services earlier. It might not be directly related, but it has provided me with industrial exposure. and I am good at teamwork.
+
+4) Where do you see yourself in next 5 years?
+
+----> 	In the next 5 years, I see myself advancing from an entry-level developer to a leadership position within the company. My goal is to take on more significant responsibilities, potentially leading projects and mentoring junior team members. I am committed to continuous learning and staying updated on the latest trends and technologies in the field.
+
+5) Why Software Engineering?
+
+---->	I am passionate about software engineering because it provides a platform for turning innovative ideas into practical solutions. The ability to create, innovate, and address real-world challenges through coding attracts me. I am excited about the prospect of contributing to the dynamic and ever-evolving field of technology. Coding allows me to use logic and creativity to build software solutions from ideas. I enjoy the constant learning that comes with technology, always staying updated on new tools and methods. 
+
+6) Why did you switch ?
+
+----> 	I moved from banking to the IT field because I really enjoy working with technology and creating software. Although I learned a lot in banking, but I found my true passion in coding and solving problems through technology. This switch allows me to focus on what I love and contribute to the fast-paced and exciting world of IT.
+
+7) What is your salary expectation ?
+
+---->  I am a fresher in this industry and my preference right now is to gain experience and enhance my knowledge and skills. I will be more than happy with whatever the company offers, as per company norms, policies, and industry standards.
+
+cybage - java developer

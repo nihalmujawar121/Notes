@@ -1,0 +1,151 @@
+Form Control :- form control are the classes in angular that holds both the data value and the validation information of the any form element. Form control represents the single input field in angular forms and tracks its values.
+ whenever we are using the ngModel directive in template driven form, Angular implicitly creates form control instance for you behind the scenes.
+	The ngModel directive binds the input field to the implicitly created form control. Any changes in the input field are reflected in the form control instance.
+
+Form Group :- Form Group is a collection of form control instances. Each form control is property in Form Group with the control name as the key.
+	Form Group tracks the value and validity state of the group of the form control instances.
+	A Form Group aggregates the value of each child form control into one object, with each control name as the key.
+
+Form Builder :- The Form Builder is in angular are service. Using Form builder we can create instances of  Form Control, Form Group and Form Array. It reduce the amount of boilerplate code needed to build complex forms.
+	Generated the content using the factory methods of Form Builder is control(), group(), and array().
+
+
+Routing :-  Routing in Angular allows the users to create a single-page application with multiple views and allows navigation between them. Users can switch between these views without losing the application state and properties. 
+	Routing lets you display specific views of your application depending on the URL path.
+
+difference between Router and route?
+	Router is the class which provide us method like navigateByUrl.
+	Route means to navigate from one view to another view.
+
+There are two types of Routing
+	Static Routing: Static routing is a process in which we have to manually add routes to the routing table. 
+	Default Routing :A default route is the route that takes effect when no other route is available for an IP destination address.
+
+Router-outlet in angular acts as a placeholder that let the user to load the components dynamically based on the current route state. It plays a crucial role in enabling the dynamic loading and swapping of components based on the route configuration. 
+
+Guards :-  Angular Routes guards can be used to control whether the user can navigate to or aways from the given route based on some condition. 
+	   In Angular, "guards" refer to a set of interfaces that allow developers to implement custom logic for controlling the navigation process. Guards are used to protect and control access to different parts of an Angular application. They are associated with Angular's router and are primarily used to determine whether a user is allowed to navigate to or away from a specific route. Guards are often used in scenarios where you need to enforce certain conditions or restrictions before allowing a route transition to occur.
+
+
+1. CanActivate: The Angular CanActivate guard decides, if a route can be activated
+       This guard is used to determine whether a route can be activated or not.
+       It has a single method called canActivate, which returns a boolean or a Promise/Observable that resolves to a boolean.
+       If canActivate returns true, the route is allowed; otherwise, navigation is blocked.
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthGuard implements CanActivate {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean | Observable<boolean> | Promise<boolean> {
+    // Your logic to check if the user is authenticated or has the necessary permissions.
+    return true; // Allow navigation
+  }
+}
+
+
+2. CanActivateChild:
+	Similar to CanActivate, but it applies to child routes.
+	It guards child components when a route with child routes is activated.
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthGuard implements CanActivateChild {
+  canActivateChild(
+    childRoute: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean | Observable<boolean> | Promise<boolean> {
+    // Your logic for guarding child routes.
+    return true; // Allow navigation to child routes
+  }
+}
+
+
+3.CanDeactivate:-  You can use the CanDeactivate guard to prevent users from accidentally leaving a route/page in your  application. For example if such page contains a text editor with unsaved changes or an unsubmitted form.
+
+     This guard is used to determine whether a route can be deactivated or not.
+     It has a single method called canDeactivate, which returns a boolean or a Promise/Observable that resolves to a boolean.
+     If canDeactivate returns true, the route can be deactivated; otherwise, navigation is blocked.
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CanDeactivateGuard implements CanDeactivate<MyComponent> {
+  canDeactivate(
+    component: MyComponent,
+    currentRoute: ActivatedRouteSnapshot,
+    currentState: RouterStateSnapshot,
+    nextState?: RouterStateSnapshot
+  ): boolean | Observable<boolean> | Promise<boolean> {
+    // Your logic for checking if the component can be deactivated.
+    return true; // Allow deactivation
+  }
+}
+
+4. CanLoad:
+	This guard is used to determine whether a module can be loaded lazily or not.
+	It has a single method called canLoad, which returns a boolean or a Promise/Observable that resolves to a boolean.
+	If canLoad returns true, the module can be loaded lazily; otherwise, it won't be loaded.
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AuthGuard implements CanLoad {
+  canLoad(
+    route: Route,
+    segments: UrlSegment[]
+  ): boolean | Observable<boolean> | Promise<boolean> {
+    // Your logic to check if the module can be loaded.
+    return true; // Allow lazy loading
+  }
+}
+
+These guards can be used individually or combined as needed to implement fine-grained control over the navigation behavior in an Angular application. Guards are typically provided as part of the route configuration in the Angular router.
+
+
+# Template-driven forms :- Uses directives in the template to create the form data model.
+	This form is depends on directives in the template to create and manipulate form data model.
+	In template driven form the behavior and validation are specified using directives and attributes in the template.
+	Forms with basic form requirement can be easily created with template driven form approach.
+	This approach is useful for adding simple form to an app. such as email signup form, feedback form
+
+directive are used in template driven forms
+1. NgForm :- NgForm directive is used to set up the form. It automatically detects the <form> tag with form elements and convert it into the template-driven form.
+	It binds it to a form to track aggregate form value and validation status.
+	It creates a top-level formGroup.
+
+2. NgModel :- NgModel directive is used to set the form controls. It create form control instance from a domain model and bind it to a form control element.
+	The form control instance tracks the value, user interaction and validation status of form controls.
+
+3. NgModelGroup :- NgModelGroup directive is used to set up the form gruop, It creates and binds the form group instance to a DOM element.
+	It can only be used as a child of NgForm to validate sub-group of your form seprately from the rest of the form.
+
+# Steps for creating Template-Driven Form
+  1. Add FormsModule to application root module.
+  2. Add NgModel directive to the each form control.
+  3. Add name attribute to each form control. 
+
+
+# Reactive form :- Reactive forms are one of the ways to build forms in angular. we also called the model-driven form to the reactive form.
+	The structure of the form is defined in component class and the html content changes depending on the code in the component.
+	Reactive forms use and explicit and immutable approach to manage the state of the form at the given point of time.
+
+# Benefits of Reactive form
+	1. Easy to maintain by keeping template code clean.
+	2. Removes core validation code from the template.
+	3. Create more scalable large form easily.
+	4. Provide direct synchronous data access.
+	5. Can add form fields dynamically.
+	6. Defines data model explicitly.
+	7. Immutable form data structure.
+	8. Keep data model pure, hence preffered by developers.
+	
+
+# Steps for creating Reactive Form
+  1. Add ReactiveFormsModule to the application root module.
+  2. Create Form Model in component class using form control, form Group, and form Array.
+  3. Create the html form that resembles the form model
+  4. Bind the html to the form model using [FormControl] and [FormGroup] directives.

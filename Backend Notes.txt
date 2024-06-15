@@ -1,0 +1,564 @@
+#. What is Maven ?
+	Maven is an open-source build automation and project management tool widely used for Java applications. As a build automation tool, it automates the source code compilation and dependency management, assembles binary codes into packages, and executes test scripts. 
+
+#. Maven LifeCycle Phases:-
+	1. validate = The project is correct and all necessary information is available.
+	2. compile  = Compile the source code of the project.
+	3. test     = Test the compiled the source code using a suitable unit testing framework.
+	4. package  = Take the compiled code and Package it in its distributable format, such as a JAR.
+	5. verify   = Run any checks on results of integration tests to ensure quality criteria are met.
+	6. install  = Install the package into local repository for use as an dependancy in other project locally.
+	7. deploy   = Done in the build environment, copies the final package to the remote repository for sharing with other 		      developers and projects.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is POM( Project Object Model) ?
+	POM is the fundamental unit of work in Maven. It is an XML file that contains information about the project and configuration details used by Maven to build the project. It contains default values for most projects.
+
+#. Components of pom.xml.
+	1. Project   = The top-level element in all Maven pom.xml files.
+	2. groupId   = indicates the unique identifier of the project organization or group that creates the project.
+	3. packaging = indicates the package type to be used by this artifact( e.g., JAR, WAR, EAR, etc.)
+	4. version   = specifies the version of the artifact under the given group.
+	5. name      = indicates the display name used for the project. This is often used in maven's generated 		       documentation.
+	6. dependencies = defines the dependancies for this project. For example, the junit dependancy is used so that test 		          cases can be written for the project.
+-----------------------------------------------------------------------------------------------------------------------------
+	
+#. What is Framework ?
+	A framework is large body of pre-defined code to which we can add our own code to solve a problem in a specifiec domain. Frameworks are based on architecture and design, and force user to follow them.
+
+#. What is Spring Framework ? 
+	Spring is a powerful, flexible, fast, secure, lightweight framework used for building java web applications. Spring Framework is well-defined tool that supports several web applications using JAVA as a programming language.
+	Spring is a open-source and has a large and active community. The spring framework devided into modules. The Spring Framework is an open-source framework for building enterprise applications in Java. It provides comprehensive infrastructure support, including features like Inversion of Control (IoC), Aspect-Oriented Programming (AOP), data access, transaction management, and more. Spring promotes modularity, ease of testing, and a loosely coupled architecture, making it a popular choice for Java developers to create scalable and maintainable applications.
+
+#. Advantages :- 1. Modular and lightWeight, 2. Flexible configuration, 3. Dependency injection(DI), 4. Aspect oriented Programming(AOP), 5. Simplified Data Access, 6. Testing Support, 7.Security, 8. Scalablity, 9. Open-source, 10. Integration Capabilities.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is Spring Core Container ?
+	The spring core container is the core module of the spring framework.
+	The spring core container is responsible for :-
+	  1. Creating application objects = The core container creates all the object of the application, the objects are 	  also called beans.
+	  2. Wiring the object together = The core container manages how the beans must be used. If a class requires a bean, 	  then the container injects the beans into the class.
+	  3. Configuring the objects = The beans must be configured using a configuration the file, which informs the core              container that all beans in the file can be managed by Spring.
+	  4. managing the complete lifecycle of the objects = Beans are managed by Spring from creation to destruction.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#.  What are the different modules are available in Spring Framework?
+	The Spring Framework has about 20 modules that are grouped into six categories.
+	1. Core Container                      2. Data Access/Integration   3. Web
+	4. AOP( Aspect Oriented Programming )  5. Instrumentation 	    6. Test
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is AOP( Aspect Oriented Programming )?
+	Aspect-Oriented Programming (AOP) is a key element of the Spring Framework. It's a programming paradigm that complements object-oriented programming (OOP). AOP allows programmers to address cross-cutting problems by coding solutions into aspects. These aspects are then invoked by the Spring AOP framework. AOP increases modularity by allowing the separation of cross-cutting concerns. These cross-cutting concerns are different from the main business logic. 
+	AOP breaks the program logic into separate parts called concerns. It's used to increase modularity by cross-cutting concerns. Spring AOP is a popular Java framework that helps programmers build flexible web applications in Java. 
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is annotation?
+	In Spring, annotations are special metadata that provide information about a Spring application. annotations are metadata that you can add to your code to provide additional information about the elements in your application. Annotations in Spring are used to simplify the configuration and development of applications by reducing the need for XML configuration files and boilerplate code.
+
+	Here are some of the most commonly used Spring annotations:-
+	@Component: This annotation is used to indicate that the class provides the mechanism for storage, retrieval, search, update and delete operation on objects.
+	@Repository: This annotation is used to indicate that the class provides the mechanism for storage, retrieval, search, update and delete operation on objects.
+	@Service: This annotation is used to indicate that the class provides the mechanism for performing business operations.
+	@Controller: This annotation is used to indicate that the class provides the mechanism for handling web requests.
+	@Autowired: This annotation is used to indicate that the field should be automatically wired by Spring.
+	@Qualifier: This annotation is used to indicate which bean should be injected when there are multiple beans of the same type.
+	@Bean: This annotation is used to indicate that the method should be registered as a bean in the Spring container.
+	@Configuration: This annotation is used to indicate that the class should be used as a configuration bean.
+	@EnableAutoConfiguration: This annotation is used to enable auto-configuration in a Spring Boot application.
+	@ComponentScan: This annotation is used to enable component scanning in a Spring Boot application.
+	@SpringBootApplication: This annotation is used to indicate that the class is a Spring Boot application.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is wiring techniques ?
+	When a class is dependent on another class, the object of the other class is also created. Wiring in Spring is the process of configuring and managing the dependencies between beans. The process of creating associations between application object or beans, is commonly referred to as wiring. For e.g. Customer has an Address
+
+	1. XML-Based Configuration (XML Wiring) :- In XML-based configuration, you explicitly define the dependencies between beans in an XML configuration file. The <bean> elements in the XML file contain attributes such as id and ref to specify the bean's identifier and the reference to its dependency, respectively.
+
+	Example of XML-based configuration for bean wiring :-
+
+	<beans>
+    	<bean id="userService" class="com.example.UserService">
+        	<property name="userRepository" ref="userRepository"/>
+    	</bean> 
+    	<bean id="userRepository" class="com.example.UserRepository"/>
+	</beans>
+
+	2. Annotation-Based Configuration (Annotation Wiring) :- In annotation-based configuration, you use annotations to declare dependencies directly in the source code.  Annotations like @Autowired, @Inject, or @Resource are used to indicate dependencies between beans.
+
+	Example of annotation-based configuration for bean wiring :-
+
+	@Service
+		public class UserService {
+    		@Autowired
+   	 	private UserRepository userRepository;
+    		// ...
+	}
+In this example, the UserService class is annotated with @Service, indicating that it is a Spring-managed component. The @Autowired annotation on the userRepository field signals the Spring IoC container to inject an instance of UserRepository into the userService bean.
+
+	The process of wiring allows developers to establish relationships between different components in a Spring application, making it possible for the IoC container to manage the creation, configuration, and collaboration of these components. This promotes a loosely coupled architecture, where individual components are not responsible for creating or managing their dependencies, leading to more maintainable and modular code.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What are the different type of containers are available?
+	In the context of the Spring Framework, there are two main types of containers: the BeanFactory and the ApplicationContext. Both are responsible for managing beans, which are the objects managed by the Spring IoC (Inversion of Control) container.
+
+	1. BeanFactory :- The BeanFactory is the simplest and most basic container in the Spring framework. It provides the fundamental features of the IoC container, including the instantiation, configuration, and management of beans.
+	The BeanFactory is suitable for small to medium-sized applications where memory consumption is a critical factor, as it follows a lazy-loading approach, creating beans only when they are requested.
+
+	Example configuration using BeanFactory :-
+
+	   Resource resource = new ClassPathResource("beans.xml");
+	   BeanFactory factory = new XmlBeanFactory(resource);
+    	   MyBean myBean = (MyBean) factory.getBean("myBean");
+
+	2. ApplicationContext :- The ApplicationContext is a more feature-rich and advanced container compared to BeanFactory. It includes all the functionalities of BeanFactory and provides additional features such as event propagation, declarative mechanisms for configuration, and integration with other Spring modules.The ApplicationContext is suitable for most applications, especially for large-scale enterprise applications.
+	It supports various application contexts, including XML-based configuration, annotation-based configuration, and Java-based configuration.
+
+	Example configuration using ApplicationContext :-
+
+	   ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+	   Employee emp = application.getBean(Employee.class);
+           System.out.println(emp);
+
+	In this example, the ApplicationContext loads the configuration from the "AppConfig.class" file and creates an instance of Employee 
+	Both containers serve the purpose of managing beans and supporting the IoC principle, but the choice between BeanFactory and ApplicationContext depends on the specific needs of the application. In practice, ApplicationContext is commonly preferred due to its additional features and flexibility, unless there are specific constraints that make BeanFactory more suitable.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is IOC ( Inversion of Control )?
+	IOC stands for Inversion of control it is a mechanism by which the control of object is transferred to a container or framework not to the developer.
+	Object creation, wiring & managing everything will be taken care by spring container. Because the control transferred to container not to the developer is reverse of control or inversion of control.
+	Inversion of Control is a design principle where the control of object creation and lifecycle is inverted or moved from the application code to an external container or framework.
+	In the context of Spring, IoC means that the Spring IoC container is responsible for managing the lifecycle of objects (beans), including their creation, configuration, and destruction. 
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is Autowiring ?
+	Autowiring injects the object dependency implicitly. The spring container find the type and name of the property and matches the same with other beans within the container to resolve dependencies.
+	For example :- A Customer can have Address. The Customer and Address are two objects that have a relationship between them. When the customer object is created, the address object will be injected into the Customer by the Spring container.
+
+	Autowiring - Annotation-based configuration
+		The @Autowired annotation in the spring automatically injects the dependent beans into the associated references of POJO class.
+--- @Autowired annotation can be used on the following.
+	1. Property   						2. Setter method   
+	3. Constructor :-  Constuctor autowiring is preferred over other autowiring methods. This type of injection is safer 		as the object will not be created if the dependancies are not available or the dependencies cannot be resolved.
+-----------------------------------------------------------------------------------------------------------------------------
+#. What is DI( Dependency injection)?
+	It is a design pattern, its main task to inject the dependency means inject one object into another object. DI is a fundamental aspect of spring framework. It allows the creation of dependent object outside of the class and provide those objects to a class in different way. Using DI, we move the creation and binding of the dependent object outside of the class that depends on them.
+
+#. Advantages : Loose coupling, Modularity, Flexiblity, Inversion of control, Decoupled configuration, Code reusability.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is Spring Boot ? 
+     Spring Boot makes it easy to create standalone, Production-grade spring-based application that you can run. Spring Boot is a powerful framework that can help you to develop Spring-based applications quickly and easily. If you are looking for a framework that can help you to develop Spring-based applications, then Spring Boot is a good option to consider. A standalone
+application is a software program that can be executed on its own, like the main method in java program. You can develop spring application without spring boot. But this involves a lot of configurations which is time-consuming.
+     Spring Boot removes the configuration pains of the spring framework by providing a set of conventions. If as a developer
+you follow those conventions, Spring Boot will do all the configuration for you.
+
+#. Why use Spring Boot ? 
+	Benefits of Spring Boot make it popular among developers :- 
+	1. It is very easy to spring-based application with java.
+	2. It reduces a lot of development time and increase productivity.
+	3. It avoids lots of repitative code, annotations, and XML configurations.
+	4. It eases dependency management.
+	5. It provides embedded HTTP server like Tomcat, Jetty 	etc., to develop and test our web applications very easily.
+	6. IT provides lots of plugins to work with embedded and in-memory.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. How Spring boot managed to create a application ?
+	Spring Boot auto-configuration attempts to automatically configure your Spring application based on the jar dependencies that you have added.
+	The main application class is the entry point of the Spring Boot application. It is annotated with @SpringBootApplication, a meta-annotation that includes several annotations such as @Configuration, @EnableAutoConfiguration, and @ComponentScan.
+	This annotation enables the auto-configuration features of Spring Boot, which automatically configures various aspects of the application based on its dependencies and the environment.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. 3. What is the basic dependency we need to create basic Spring boot application ?
+	1. spring-boot-starter-parent :- The spring-boot-starter-parent is the parent project that provides default  	configurations and settings for Spring Boot projects. It manages the versions of dependencies and plugins, making it 	easier to maintain and upgrade the project.
+
+	<parent>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-parent</artifactId>
+    	<version>2.6.5</version> <!-- Replace with the latest version -->
+	</parent>
+
+	2. spring-boot-starter :- The spring-boot-starter is a core starter that includes the necessary dependencies to set 	up a basic Spring Boot application.
+
+	<dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter</artifactId>
+	</dependency>
+
+	3. spring-boot-starter-test :- The spring-boot-starter-test includes dependencies for testing the Spring Boot  application.
+
+	<dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-test</artifactId>
+    	<scope>test</scope>
+	</dependency>
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is in memory database of H2 ?
+	The in-memory database of H2 is a feature that allows creating and using a lightweight, temporary database that resides entirely in the system's memory. This type of database is not persisted to disk, making it well-suited for scenarios like testing and prototyping, where data persistence is not a primary concern. The in-memory database is fast, lightweight, and can be configured using a JDBC connection URL, such as jdbc:h2:mem:dbname. Data in the in-memory database is lost when the application using it is shut down or restarted. H2 database run on 9092.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#.  What is REST?
+	 REST is commonly used for communication between a client and a server over the web. REST, or Representational State Transfer, is an architectural style for designing web services. It provides a set of principles and constraints, such as statelessness and a uniform interface, to create scalable and simple communication between systems. RESTful services use standard HTTP methods (GET, POST, PUT, DELETE) to interact with resources identified by URLs. It's a popular approach for building APIs on the web, promoting flexibility and standardization in how applications communicate over the internet.
+
+#. Need Of REST API :-
+	Rest clearly difines the role of server and client.
+	The user interface seprated from database services.
+	Developers can focus on only one aspect when developing client server application.
+	REST is independent of the underlying platform.
+	Any platform such as PHP, Python, Node.js can be used to implement REST APIs.
+	REST allows the communication between the server and the client by using HTTP, regardless of the platform used.
+	REST APIs are highly scalable and flexible.
+
+#. REST Client :- REST client is the method or a tool to invoke a REST service API. REST APIs are exposed for communication by any system or service. For example, If API is exposed to get real-time traffice information about a route from google, the software tool that invokes the google traffic API is called the REST Client. 
+	Opera, Google Chrome, Safari, Postman, Katalan etc. all are examples of REST Clients. 
+
+#. Components of RESTful Services :- Resources, Request Verb, Request Headers, Request Body, Response Status Code.
+
+#. Request to REST API - HTTP Request :- 
+	The HTTP request is made by a client to server through REST API with an aim to access a resource on the server. 
+	The component of HTTP Request are :-
+		1. Endpoint :- Its the URL of REST Server that enables access to a resource on the server.
+		2. Method   :- The kind of operation the client wants a server to perform on the resource.
+		 	GET    = Get the resource from the server.
+			POST   = Create the resource at the server.
+			PUT    = Update the existing resource on the server.
+			DELETE = Delete the existing resource at the server.
+		3. Headers  :- Additional information provided for communication by the client to the server.
+		4. Data	    :- Information that need to be sent to the server.
+
+#. Response From REST API :- HTTP Response
+	The response from REST API is HTTP Response. The HTTP response is an object that contains the response that the server wants to send to the client. 
+	The  response object contains :- Status, Status Message, Header, Body etc.,
+
+#. HTTP Status Code :- HTTP response status codes indicates the status of completion of the HTTP request.
+	Responses are grouped into 5 classes.
+		1. 100-199 :- Informational responsea 
+		Example :- the status code 102 indicates the server has received and is processing the request. The response is yet not generated.
+		2. 200-299 :- Successful responses
+		Example :- The status code 200 for a get request indicates the request was successful in fetching the requested data.
+		3. 300-399 :- Redirection responses
+		Example :- The status code 301 indicates the request has been changed permanently and a new URL is given in the response.
+		4. 400-499 :- Client errors
+		Example :- The status code 404 indicates the server could not find the requsted resource.
+		5. 500-599 :- Server errors
+		Example :- The status code 500 indicates there is an internal server error that the server does not know how to handle. For instance, the resource with a duplicat ID is sent to the server and the server is not allowed to store a resource with a duplicate ID.	
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is the legacy before REST?
+	Before REST, the common approach for building web services was through protocols like SOAP (Simple Object Access Protocol) and technologies like RPC (Remote Procedure Call). These approaches often involved complex standards, tightly coupled systems, and heavy use of XML for data exchange. REST emerged as a simpler and more flexible alternative, offering a lightweight and scalable way to design distributed systems, particularly for web APIs.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What are the advantages of REST?
+	1. Simplicity: REST is simple and easy to understand.
+	2. Statelessness: Each request is independent, enhancing scalability.
+	3. Uniform Interface: Standard HTTP methods and resource-based design for consistency.
+	4. Scalability: Stateless nature allows for easy scaling of services.
+	5. Flexibility: Adaptable to changes without affecting existing clients.
+	6. Interoperability: Works well with different systems and languages.
+	7. Caching: Supports caching for improved performance.
+	8. Reduced Latency: Lightweight communication for faster responses.
+	9. Stateless Communication: Simplifies session management.
+	10. Ease of Testing: Easy to test using standard tools.
+	11. Wide Adoption: Widely accepted standard for web APIs.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#.  What is @RequestBody annotation?
+	The @RequestBody annotation is a Spring annotation that indicates that Spring should deserialize a request body into an object. In short, it tells Spring to take the data from the body of an HTTP request and convert it into a Java object. This object can then be used in the controller method.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is ResponseEntity?
+	ResponseEntity in Spring is a class used to represent the entire HTTP response, including the status code, headers, and body. It offers a way to customize and send specific details in the response when handling requests in a Spring MVC controller.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is Unit Testing? 
+	Unit testing is a software testing approach where individual components or functions of a program, called "units," are tested in isolation to ensure they work correctly. The goal is to validate that each unit performs as intended and to identify and fix any defects early in the development process. Unit tests are typically automated, written by developers, and focus on small, specific parts of the code, ensuring that each unit behaves as expected in isolation from the rest of the program.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. Define Bean in Spring ?
+	The objects that form the backbone of your application and that are managed by the Spring IoC container are called beans. In Spring, a bean is a Java object managed by the Spring IoC (Inversion of Control) container. It represents a component or service in a Spring-based application and is configured within the Spring application context. Beans are created, wired together, and managed by Spring, following the principles of Inversion of Control. They are typically used to encapsulate and provide services or functionality within the application.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#.  Service Layer :- In Spring Boot, the service layer is a component that contains the business logic of your application. It acts as an intermediary between the controllers (which handle incoming requests) and the repositories (which interact with the database). The service layer encapsulates the application's business rules, processes data, and performs operations necessary to fulfill the requests received from the controllers. This helps in maintaining a clean and modular architecture, separating concerns and promoting code reusability.
+
+#. Repository Layer :- Also known as DAO( Data Access Object ) layer. In Spring Boot, the repository layer is responsible for interacting with the database. It provides a set of methods to perform database operations such as saving, updating, deleting, and querying data. This layer typically uses an object-relational mapping (ORM) framework, such as Spring Data JPA, to simplify database access.
+	In short, the repository layer manages the communication between your application and the database, abstracting away the complexities of database interactions and providing a clean API for the rest of your code to interact with the underlying data store.
+
+#. Controller Layer :- Controller layer is responsible for handling request and sending back a proper response. In Spring Boot, the controller layer is responsible for handling incoming web requests and managing the flow of data between the client and the application. Controllers receive requests, process them, and return an appropriate response. They serve as the entry point for user interactions and act as a bridge between the user interface and the application's business logic.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. JPA( Java Persistance API ) :- The JPA provides the mechnism for managing persistance and object relational mapping(ORM). The JPA specification defines the object relational mapping internally. JPA is based on the java programming model. The relational mapping between classes is also maintained when it is persisted into the database. To store and retrive data, simple queries can be written in the application. All the java classes that are to be persisted in the database called entities. They are represented using the @Entity annotation present in the javax.persistance package.
+	Each entity has a unique object identifier, the unique identifier or primary key of the entity is represented using the @Id annotation.
+
+#. Here are some of the benefits of using JPA in Spring Boot :-
+	It provides a consistent way to access and persist data in relational databases.
+	It reduces the amount of boilerplate code required to write database access code.
+	It provides a layer of abstraction between the database and the application, making it easier to change the database without affecting the application code.
+	It supports a variety of relational databases, including MySQL, PostgreSQL, and Oracle.
+
+#. Spring Data JPA :- The spring data JPA makes it easy to implement the JPA-based data layer or repositories, in a Spring REST API. Spring Data JPA reduces the need to write boilerplate or redundant code to exercise routine queries. The Spring Data JPA provides built-in implementations for all these operations. The programmer can also write the custom finder methods, which spring can automatically implement.
+
+#. Advantages of using Spring Data JPA :- 
+	The repository layer of the application can be free of code.
+	It provides the default implementation for each method of the repository interfaces.
+	Generates database queries based on method name. The method begins with findBy.
+
+#. Types of Spring Data JPA Repositories :- 
+	1. Repository :- The Repository is the top-level interface.
+	2. CrudRepository :- CrudRepository is the child of Repository and offers standards create, read, delete and update operations. It contains method like findOne(), sava(), delete() etc.
+	3. PagingAndSortingRepository :- PagingAndSortingRepository is the child of CrudRepository and adds the findAll() methods. It allows data to be sorted and retrieved in a paginated way.
+	4. JpaRepository :- Each of the interface provides the functionality and can be used depending on the requirements.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. No SQL Database :- A NoSQL (Not Only SQL) database is a type of database management system that provides a mechanism for the storage and retrieval of data in a format other than traditional relational databases. NoSQL databases are designed to handle unstructured, semi-structured, or structured data, and they offer a flexible schema for data storage. These databases are often used for large-scale, distributed systems and can be more scalable and agile than traditional relational databases in certain scenarios. Examples of NoSQL databases include MongoDB, Cassandra, and Redis.
+
+#. Advantages :- 1. Handles large volumes data at high speed with a scale out architecture.
+		 2. Stored unstructured, semi-structured, and structured data.
+		 3. Enables easy update to schemas and fields.
+		 4. They are developer-friendly.
+		 5. Takes full advantages of cloud to deliver service at zero downtime.
+
+#. MongoDB - The document database
+	MongoDB is general-purpose, document-based, and distributed-database built for modern application developers.
+#. Advantages - Flexible Schema, Community Support, Ease of Development, Scalability, Document-Oriented, High Performance.,
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. MongoRepository :- MongoRepository is an interface provide by spring data to work with MongoDB. It extends CrudRepository.
+It provide all the necessary methods that help to create CRUD application, and it also supports the custom-derived query methods.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. Mockito Framework :- Mockito is used to mock external interfaces so that a dummy functionality can be added to a mock interface used in unit testing. It allows developers to simulate the behavior of real objects, helping isolate and test specific units of code.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is Json Web Token(JWT) ?
+	The JSON web Token or JWT, as it is more commanly called, is an open internet standard for securely and compactly transmitting trusted information between client and server. JSON Web Token (JWT) is an open standard (RFC 7519) for securely
+transmitting information between parties as JSON object.
+	JWT can be used to authenticate or verify an application user.
+	It is standard for token-based authentications.
+	JWT works across different programming language.
+	It can be passed around easily between the client and server.
+	The token contains claims encoded as JSON object and digitally signed using a private secret or a public/private key pair. They are self contained and verifiable as they are digitally signed.
+
+#. The uses of JSON Web Token :- 
+	1. Authorization  2. Information Exchange
+
+#. Authentication-the process or action of verifying the identity of a user or process.
+	Authorization-official permission for something to happen, or the act of giving someone official permission to do something: Medical records cannot be disclosed without authorization from the patient.
+
+#. JSON web Token consist of three parts separately.
+	1. Header
+	2. Payload
+	3. Signature
+
+#. Header :-
+	 JWT header consists of token type and algorithm used for signing and encoding.
+	 Algorithms can be HMAC, SHA256, RSA, HS256 or RS256.
+
+       {
+        "typ": "JWT",
+        "alg": "HS256"
+        }
+	HS256 is a algorithm which generates a key which is common between client and server
+
+#. Payload :-
+	Payload consists of the session data called as claims. Some of standard claims are
+	1)Issure, 2)Subject 3)Audience 4)Expiration time 5)Issued at 6)Expire date
+
+{
+"sub": "user10001",
+"iat": 1569302116
+}
+
+Do not put large data in claim sets. Claim sets meant to be compact.
+Do not put sensitive informations since, JWT can be decoded easily.
+{
+"sub": "user10001",
+"iat": 1569302116,
+"role": "admin",
+"user_id": "user10001"
+}
+
+#. Signature :-
+	Signature is most important part of a JSON Web Token(JWT). Signature is calculated by encoding the header and payload using Base64url. Encoding and concatenating them with a period separator. Which is then given to the cryptographic algorithm.
+
+#. signature algorithm
+	data = base64urlEncode( header ) + "." + base64urlEncode( payload )
+	signature = HMAC-SHA256( data, secret_salt )
+
+	So when the header or payload changes, signature has to calculated again. Only the Identity Provider(IdP) has the private key to calculate the signature which prevents the tampering of token.
+
+#. How it works?
+	Basically the identity provider(IdP) generates a JWT certifying user identity and Resource server decodes and verifies the authenticity of the token using secret salt / public key.
+ 
+	1)User sign-in using username and password or google/facebook.
+	2)Authentication server verifies the credentials and issues a jwt signed using either a secret salt or a private key.
+	3)User's Client uses the JWT to access protected resources by passing the JWT in HTTP Authorization header.
+	4)Resource server then verifies the authenticity of the token using the secret salt/ public key.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. Docker :- Docker is container technology used to build, ship and run an application in any device. Docker packages application into standarized units called containers. The container have everything the application need to run, including libraries, system tools, code and runtime. Docker can be seen as an operating system for containers.
+
+#. Advantages of using Docker :- 
+		1. Flexible resource sharing.
+		2. Scalability, multiple containers can be placed in a single host.
+		3. The application can be run on hardware that is much cheaper than standard servers. 
+		4. Fast deployment, ease of creating new instances, and faster migrations.
+		5. Ease of moving and maintaining your applications.
+		6. Better security since access is restricted as the application runs inside a container.
+	
+#. Components of Docker :- 
+	1. Docker Image :-  A docker image is a template that includes all the dependencies, deployment and execution configuration used by a docker container at runtime. The image is immutable. Docker images have intermediate layers that increase disk usage, and speed up docker build by allowing each step to be catched. These intermediate layers are not shown by defualt. Multiple Docker images can be stacked in a single Docker container. The stacked images form the Docker container's file system. It can be created, started, stopped and deleted.
+
+	2. Docker Container :- A Docker Container is created from a Docker images. A Docker Container is runable instance of the docker image. To build a docker image and execute a container, multiple commands need to be executed.
+
+#. Docker Architecture :- 
+		Docker uses a client-server architecture. The Docker clients talks to docker daemon, which does the heavy lifting of building, running and distributing the docker containers. The docker clients and daemon can run on the same system or can connect to a Docker client on a remote docker daemon. A Docker client and daemon communicate using the REST API over  UNIX sockets. Ther Docker client is the Powershell or command prompt where the docker commands are run.
+	The docker desktop is the host for running the Docker containers and building the images and contains the Docker daemon. The registry is the docker hub where the predefined docker images are present.
+
+#. Communication between containers :-
+	A spring boot application uses MYSQL or MongoDB to store data. The Spring Boot application happens through UNIX sockets, the Docker desktop application is used. Docker Desktop is an easy to install application for Mac or windows environments that helps to build and share containerized applications. Docker Desktop includes the Docker daemon Dockerd, the Docker client Docker, Docker compose, Docker content Trust, kubernetes and credential Helper. 
+	Docker excepts the container that need to communicate with each other to run on the same network. 
+
+#. What is Docker Compose ? 
+	Docker compose is a tool used to define and run multi-container Docker applications. Each container runs in isolation, but they can internet interact with each other as and when required. With Docker Compose, a YAML file is used to configure all the application services. 
+	A single command is then used to start all the services mentioned in the YAML file as Docker containers.
+
+#. Benefits of Docker compose :- 
+     1. single host deployment = All containers can be run on a single piece of hardware.
+     2. Quick and easy configuration = The YAML script that are used are very simple to write and are used for configuration.
+     3. High Prodictivity = Docker compose reduces the time it takes to perform tasks.
+     4. Security = All the containers are isolated from each other.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. Monolithic Applications :-
+	 A monolithic application is built as a single unified unit. A monolithic application is Self-contained and independent from other computing applications. Its deployed as a single application. In case it is a java web application, it will have a single WAR file that runs on a web container like Tomcat. 
+
+#. Advantages of Monolithic approach :-
+	1)Developement : when an application is built with one code base , it is easier to develop.
+	2)Performance : one api can perfoem the many functions 
+	3)simplified testing : Since a monolithic application is a single, centralized unit, end-to-end testing can be 		  performed faster than with a distributed application. 
+	4)Easy debugger : With all code located in one place, it’s easier to follow a request and find an issue.
+
+#. Disadvantages of Monolithic approach :- Tight coupling between components, Overloaded web container, Large code base, Less Scalable, Obstacles in continues deployment, More deployment and restart times, New technology barriers, Long term commitment to a tech stack.
+-----------------------------------------------------------------------------------------------------------------------------
+
+# Microservices :- 
+	Microservices are modular, autonomous and logical units of functionality that are independently deployable and scalable. It is an architectural style, in which large complex software applications are composed of one or more services.
+	Microservice can be deployed on a server independent of each other. Each microservice focuses on completing only one task and does that one task well. A task represents a small business capability. 
+
+#. Advantages :- Modularity, single functionality principles, asynchronous invocation,  loose coupling, extensible, multiple 		technology support, faster release cycles.
+	1) Since each microservice runs independently, it is easier to add, remove, update or scale each cloud microservice. 	   Developers can perform these tasks without disrupting any other microservice in the system
+	2)Different api  perform different function
+	3) It is possible to change or upgrade each service individually rather than upgrading in the entire application.
+	4) if we are doing changes in any microservice it will not affect the another microservice 
+
+#. Disadvantage :- 
+	1) There is a higher chance of failure during communication between different services.
+	2) Difficult to manage a large number of services.
+	3) Complex testing over a distributed environment.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. API Gateway :- An API gateway is a server and it is a design pattern that is a single entry point for our APIs. It is a tool that sits between a client and collection of backend services.
+	An API Gateway acts as a reverse proxy to : 
+		1. Accept all application programming interface(API) calls.
+		2. Aggregate the various services required to fulfill them.
+		3. Return the appropriate result back to the client.
+
+#. How does an api gateway works?
+	The client send request for a service , The API gateway routes the request to the service request with the help of RouteLocator.
+
+#. Advantages :- 
+	1. An API gateway provides a single entry point for all API calls that come into an application
+	2. Client don't have to remember port numbers
+	3. Reduces the number of requests
+
+
+#. Load Balancing :- The API gateway can distribute incoming requests among multiple instances of a microservice, enabling  the system to handle a larger number of requests and improving its overall performance and scalability.
+ 	If one of our service becomes too popular there are too many client request for that service and we many multiple copies of that service so in this way the API gateway can also take the responsibility of load balancer where the first call made to the first copy and second call made to the second copy and third call made to the third copy.
+
+#. RouteLocator :- This interface will helps like when client will send request for service, then RouterLocator will route my  request to particular service
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is Eureka server ?
+	Eureka  server is an application that holds information about all client service applications. Each microservice registers itself in Eureka server.The Eureka server registers the client services with their port numbers and IP addresses.
+It is also known as Discovery Server. Eureka server by default runs on 8761 port.
+
+#. Advantages of Eureka Server :-  
+   1) It allows you to register, discover, and communicate with other services.
+   2) microservices fetch registry from Eureka when they register themself, (and also maintain copy) keep it as a catch also.
+ 	When microservice send heartBeat to Eureka it also check for updates of any registry  and update its catch with data  or registry these catch can be used at time when Eureka server cannot be excess or its down.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. what is RabbitMq?
+	In simple words, RabbitMQ is a message broker software that helps different computer systems and applications communicate with each other by passing messages between them. It acts as an intermediary, receiving messages from one application and delivering them to another, enabling efficient and reliable communication between various parts of a system.
+Asynchronous communication in microservices can be accomplished through message brokers like RabbitMQ. 
+
+#. What is Direct Exchange?
+  A Direct Exchange delivers messages to queues based on the message routing key.
+ In simple word when Direct Exchange delivers message  (that message come with one key is called Routing key), and (refer Diagram) direct exchange delivers that message to that particular queue,
+
+#. How many types of Exchange are present?
+	There are four types of exchanges :-
+ 1)Direct Exchange :- A Direct Exchange delivers messages to queues based on the message routing key.
+
+ 2)Topic Exchange :- It is similar to direct exchange in that it will route messages where the routing key matches the  binding key from the queue binding.with the topic Exchange we can also, use wildcards in the binding key.
+
+ 3)Fanout Exchange :- The Direct Exchange allows some filtering based on the message routing key, to determine which queue  receive the message, but with Fanout Exchange  there is no filtering and all messages  got to all bound queue.
+
+ 4)Headers Exchange :- It is a message routing system that uses arguments with header and optional
+ value to route message.
+
+#. Difference between binding key and routing key in rabbitMQ?
+ The binding key is used with queue,It is the key with which the queue is registered in the exchange.
+ The Routing key is used with the message.It is the key which decides which queue does this message should be route.
+
+#. what is Rabbit Template?
+ Rabbit Template acts as helper class for the producer to send message,and the consumer to receive the message.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. Feign-Client :- 
+	 1) Feign help to communicate  microservices with each other.
+	2) Certainly! In simple terms, a Feign client helps two microservices talk to each other easily. It acts as a bridge 	 between them, making it simpler for one microservice to call functions or request data from the other microservice.
+	3) It's like having a middleman that understands how to talk to both microservices and helps them understand each 	 other's needs.
+
+#. Advantages :-
+ 	1) Feign provides a straightforward and intuitive way to interact with other microservices
+ 	2) Less Code:  concise code.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is difference between Spring and Spring Boot ?
+
+ 		SPRING	 							SPRING BOOT
+ 1. Used  for building java applications				1. Used for building REST APIs.
+ 2. Its Primary feature is dependency injection				2. Its primary feature is Auto Configuration.
+ 3. The developer writes a lot of code boilerplate code.		3. It reduces boilerplate code.
+ 4. Develop loosely coupled apps.					4. Develop stand-alone app.
+ 5. No support for in-memory database					5. Plugin for working with embedded and in-memory db.
+ 6. Dependencies are defined manually in pom.xml file.			6. Starter pom.xml with default configuration.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is relation between DI and IOC ?
+	Dependency Injection is a specific technique or pattern for implementing Inversion of Control. IoC is a broader concept that encompasses various ways to invert control, and one such way is through Dependency Injection. When you use Dependency Injection, you are effectively applying the Inversion of Control principle to manage the dependencies of your components.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What in containerization ?
+	Containerization is a lightweight and portable method of packaging, distributing, and running applications. It involves encapsulating an application and its dependencies into a container, which is a standalone, executable package. Containers provide consistency across different environments, making it easier to deploy and manage applications seamlessly in various computing environments, such as development, testing, and production. Popular containerization platforms include Docker and container orchestration tools like Kubernetes help automate the deployment and scaling of containerized applications.
+
+# Advantages :- 
+	1. Portability :- Containers can run consistently across various environments, from development to production, ensuring that applications behave the same way regardless of the underlying infrastructure.
+	2. Isolation :- Containers encapsulate applications and their dependencies, providing isolation from the host system and other containers. This isolation enhances security and helps prevent conflicts between different applications.
+	3. Resource Efficiency :- Containers share the host operating system's kernel, making them lightweight and efficient in terms of system resources. They start up quickly and consume fewer resources compared to traditional virtual machines.
+	4. Scalability :- Containerized applications can be easily scaled up or down to meet changing demands. Container orchestration tools like Kubernetes facilitate automated scaling and management of containerized workloads.
+	5. Consistency :- Containers ensure consistency between development, testing, and production environments, reducing the likelihood of "it works on my machine" issues.
+	6. Fast Deployment :- Containers can be deployed rapidly, allowing for quicker development cycles and faster time-to-market for applications.
+	7. Easy Management :- Container orchestration tools simplify the deployment, scaling, and management of containerized applications, making it easier to maintain and update large-scale distributed systems.
+	8. Version Control :- Containers can be versioned, making it easier to roll back to a previous version or deploy updates without disrupting the entire system.
+	9. DevOps Enablement :- Containerization aligns well with DevOps practices, fostering collaboration between development and operations teams by providing a common platform for both.
+	10. Resource Utilization :- Containers efficiently utilize resources by sharing the host operating system's kernel, allowing for better use of hardware and reducing overhead.
+-----------------------------------------------------------------------------------------------------------------------------
+
+#. What is ORM ?
+	Object-Relational Mapping (ORM) :-	
+		Definition :- A technique that maps objects in an application to tables in a relational database, allowing seamless interaction between the application and the database.
+		Purpose :- Simplifies database operations by eliminating the need for manual SQL queries, making it easier to work with databases using object-oriented programming languages.
+-----------------------------------------------------------------------------------------------------------------------------
